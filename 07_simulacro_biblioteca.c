@@ -10,6 +10,7 @@ Una función que genere un archivo binario con todos los datos
 Una función que busque todos los libros de un determinado género e imprima los encontrados, informando si no se
 encontró ninguno.
 Una función que calcule el porcentaje de libros por género — se piden los tres porcentajes, impresos desde main()
+Vamos a ordenar ese array de libros por año de publicación de menor a mayor.
 Restricciones:
 No se permiten variables globales
 La carga y la impresión de resultados solo en main()
@@ -75,6 +76,19 @@ float porcentaje_por_genero(struct libro *libros, int cantidad, char genero_porc
 	return ((float)contador * 100) / cantidad;
 }
 
+void ordenar_por_anio(struct libro *libros, int cantidad){
+	struct libro temporal;
+	for(int i=0;i<cantidad-1;i++){
+		for(int j=0;j<cantidad-i-1;j++){
+			if(libros[j].anio>libros[j+1].anio){
+				temporal=libros[j];
+				libros[j]=libros[j+1];
+				libros[j+1]=temporal;	
+			}
+		}
+	}
+}
+
 int main(void){
 	struct libro *libros=NULL;
 	int cantidad=0;
@@ -105,6 +119,8 @@ int main(void){
 		scanf(" %c", &respuesta);
 		
 	}while(respuesta=='s');
+	
+	ordenar_por_anio(libros,cantidad);
 	
 	printf("Libros cargados\n");
 	for(int i=0;i<cantidad;i++){

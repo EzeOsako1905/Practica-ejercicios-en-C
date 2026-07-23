@@ -1,3 +1,6 @@
+/*Ordenamiento burbuja. La idea es simple: recorrés el array comparando elementos de a pares. Si el de la izquierda 
+es mayor que el de la derecha, los intercambiás. Repetís eso hasta que no haya más intercambios.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 

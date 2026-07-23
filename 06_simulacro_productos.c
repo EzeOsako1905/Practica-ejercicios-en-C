@@ -1,12 +1,9 @@
 /*Una tienda registrará su inventario de productos. Por cada producto se registrará:
-
 Nombre, hasta 50 caracteres
 Precio (número con decimales)
 Categoría (puede ser Limpieza, Alimentación o Electrónica)
-
 Se sabe que no se conoce de antemano cuántos productos habrá.
 Se pide:
-
 Almacenar en memoria todos los productos.
 Una función que genere un archivo de texto con todos los datos de cada producto.
 Una función que genere un archivo binario con todos los datos.
@@ -14,16 +11,13 @@ Una función que busque todos los productos de una determinada categoría e impr
 no se encontró ninguno.
 Una función que calcule el porcentaje de productos por categoría — se piden los tres porcentajes, impresos desde 
 main.
-
+Agregamos dos funciones nuevas: leer_texto que lea el archivo datos.txt e imprima los productos en pantalla y
+leer_binario que lea el archivo datos.bin y también imprima los productos.
 Restricciones:
-
 No se permiten variables globales.
 La carga y la impresión de resultados solo en main.
 Cada función debe tener al menos un parámetro por referencia.
-Solo C, debe compilar sin errores.
-
-Agregamos dos funciones nuevas: leer_texto que lea el archivo datos.txt e imprima los productos en pantalla y 
-leer_binario que lea el archivo datos.bin y también imprima los productos*/
+Solo C, debe compilar sin errores.*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -148,11 +142,11 @@ int main(void){
 	scanf(" %c", &cat_buscada);
 	buscar_por_cat(productos, cantidad, cat_buscada);
 	
-	char cat_procentaje;
+	char cat_porcentaje;
 	printf("Ingrese la categoria para calcular el porcentaje (A/E/L): \n");
-	scanf(" %c", &cat_procentaje);
+	scanf(" %c", &cat_porcentaje);
 	
-	float porcentaje = porcentaje_por_categoria(productos, cantidad, cat_procentaje);
+	float porcentaje = porcentaje_por_categoria(productos, cantidad, cat_porcentaje);
 	printf("El porcentaje de productos por categoria es: %.2f%%\n", porcentaje);
 	
 	guardar_texto(productos, cantidad);
